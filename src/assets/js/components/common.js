@@ -1,30 +1,40 @@
+let allTiles = document.querySelectorAll('.cage-tile');
+let counter = 0;
+allTiles.forEach(tile => {
+    tile.id = `tile${counter}`;
+    counter++;
+    tile.addEventListener('click', (event) => {
+        let firstID = event.target.id;
+        if (document.querySelector('.cage-tile--active')) {
+            let tileID = document.querySelector('.cage-tile--active').id;
+            if (document.getElementById(tileID).classList.contains('cage-tile--enemy')) {
+                document.getElementById(tileID).classList.remove('cage-tile--enemy');
+                document.getElementById(firstID).classList.add('cage-tile--enemy');
+            } else if (document.getElementById(tileID).classList.contains('cage-tile--our')) {
+                document.getElementById(tileID).classList.remove('cage-tile--our');
+                document.getElementById(firstID).classList.add('cage-tile--our');
+            }
 
-//   $('#btn-menu-mob').click(function(e) {
-//       e.preventDefault();
-//       $('.header__svg-mob').addClass('is-active');
+        }
+        if (tile.classList.contains('cage-tile--enemy') || tile.classList.contains('cage-tile--our')) {
+            tile.classList.add('cage-tile--active');
+        }
 
-//       $('#menu-mobile').animate({ 
-//         right: '0px' 
-//         }, 300);
-//       $('#menu-mobile').animate({ 
-//         right: '0px' 
-//         }, 300);
-//     $('body').css('overflow', 'hidden');
-//     $('.page').animate({ 
-//         right: '190px' 
-//     }, 200); 
-// });
+    })
+    document.addEventListener('keyup', (event) => {
+        var name = event.key;
+        if (name == 'n') {
+            allTiles.forEach(tile => {
+                if (tile.classList.contains('cage-tile--active')) {
+                    tile.classList.remove('cage-tile--active');
+                }
+            });
+        }
+    }, false);
+})
+window.onclick = function (event) {
+    if (event.target != document.querySelector('.cage-tile--active')) {
+        document.querySelector('.cage-tile--active').classList.remove("cage-tile--active");
+    }
+}
 
-// $('.menu-mobile__svg-close').click(function(e) {
-//     e.preventDefault();
-//     $('.header__svg-mob').removeClass('is-active');
-//     $('#menu-mobile').animate({ 
-//       right: '-207px' 
-//   }, 300);
-//   $('body').css('overflow', 'auto');
-//   $('.page').animate({ 
-//       right: '0px' 
-//   }, 200); 
-// });
-
- 

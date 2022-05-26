@@ -1,0 +1,93 @@
+body {
+    background-color: #a8a5a5;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.cage {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+
+    &-tile {
+        border: 3px solid #666666;
+        height: 57px;
+        width: 57px;
+        margin-right: 3px;
+        margin-bottom: 3px;
+
+        &--enemy {
+            background-image: url(./assets/images/content/enemy-soldier.png);
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+        }
+
+        &--our {
+            background-image: url(./assets/images/content/our-soldier.png);
+            background-position: center;
+            background-size: 40%;
+            background-repeat: no-repeat;
+        }
+
+        &--land {
+            background-color: #604020;
+        }
+
+        &--grass {
+            background-color: #006600;
+        }
+
+        &--water {
+            background-color: #00aaff;
+        }
+
+        &--active {
+
+            border: 3px solid #ff0000;
+        }
+    }
+}
+
+.panel {
+    background-color: #001a00;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 220px;
+    height: 100px;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    &-row {
+        height: calc(50% - 20px);
+        width: calc(100% - 20px);
+        display: flex;
+        padding: 10px;
+    }
+
+    &-header {
+        color: #fff;
+        font-size: 18px;
+    }
+
+    &-card {
+        width: calc(25% - 10px);
+        height: 100%;
+        margin-right: 10px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
